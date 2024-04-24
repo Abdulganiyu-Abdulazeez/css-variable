@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating CSS Variables with Js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    * {
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    :root {
+        --spacing:10px;
+        --blur: 10px;
+        --base: #ffc600;
+    }
+    body {
+        width: 100vw;
+        height: 100vh;
+        padding-top: 1rem;
+        background-color: rgb(20, 20, 73);
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        overflow: hidden;
+    }
+    h1 {
+        width: 70%;
+        font-size: 64px;
+        font-weight: 900;
+        margin: 0 auto;
+        z-index: 2;
+    }
+    span {
+        color: var(--base);
+    }
+    .container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .img {
+        margin-top: 1rem !important;
+        width: 60vw;
+        height: 70vh;
+        margin: 0 auto;
+        padding: var(--spacing);
+        background-color: var(--base);
+        filter: blur(var(--blur));
+    }
+    .fish {
+        width: 100%;
+        height: 100%;
+    }
+    label {
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+</style>
+
+<body>
+    <h1>Updating CSS Variables with <span>JS</span></h1>
+    <div class="container">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="150" value="10" data-sizing="px">
+
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+        <label for="base">Base</label>
+        <input type="color" name="base" value="#ffc600">
+    </div>
+    <div class="img"><img class="fish" src="./fish.jpg" alt=""></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
