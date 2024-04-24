@@ -26,7 +26,7 @@
         background-color: rgb(20, 20, 73);
         color: white;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     h1 {
         width: 70%;
@@ -34,6 +34,7 @@
         font-weight: 900;
         margin: 0 auto;
         z-index: 2;
+        text-align: center;
     }
     span {
         color: var(--base);
@@ -43,9 +44,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 1rem;
     }
     .img {
-        margin-top: 1rem !important;
+        margin-top:1rem !important;
+        margin-bottom: 1rem !important;
         width: 60vw;
         height: 70vh;
         margin: 0 auto;
@@ -61,20 +64,69 @@
         font-size: 30px;
         font-weight: 400;
     }
-
+    .container div {
+        width: fit-content;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+    }
+    @media (max-width: 425px) {
+        body {
+            width: 100vw;
+            height: fit-content;
+            max-width: fit-content;
+            margin: 0 auto;
+            padding: 1rem;
+            overflow-x: scroll !important;
+        }
+        .container {
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            width: 100%;
+        }
+        h1 {
+            width: 100%;
+            font-size: 44px;
+            text-align: center;
+        }
+        .img {
+            width: 80vw;
+            height: 50vh;
+        }
+    }
+    @media (max-width: 768px) {
+        body {
+            width: 100vw;
+            height: fit-content;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 44px;
+        }
+         .container {
+            gap: 2rem;
+         }
+    }
 </style>
 
 <body>
     <h1>Updating CSS Variables with <span>JS</span></h1>
     <div class="container">
-        <label for="spacing">Spacing:</label>
-        <input type="range" name="spacing" min="10" max="150" value="10" data-sizing="px">
+        <div>
+            <label for="spacing">Spacing:</label>
+            <input type="range" name="spacing" min="10" max="150" value="10" data-sizing="px">
+        </div>
 
-        <label for="blur">Blur:</label>
-        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+        <div>
+            <label for="blur">Blur:</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+        </div>
 
-        <label for="base">Base</label>
-        <input type="color" name="base" value="#ffc600">
+        <div>
+            <label for="base">Base:</label>
+            <input type="color" name="base" value="#ffc600">
+        </div>
     </div>
     <div class="img"><img class="fish" src="./fish.jpg" alt=""></div>
 
